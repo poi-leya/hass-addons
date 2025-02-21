@@ -17,6 +17,7 @@
   "usb": true,
   "options": {
     "pair": false,
+    "configure": true,
     "driver": null,
     "latitude": null,
     "longitude": null,
@@ -28,6 +29,7 @@
   "map": ["addon_config"],
   "schema": {
     "pair": "bool",
+    "configure": "bool",
     "driver": "str",
     "latitude": "float",
     "longitude": "float",
