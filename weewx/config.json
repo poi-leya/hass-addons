@@ -15,6 +15,9 @@
   "startup": "application",
   "boot": "auto",
   "usb": true,
+  "devices": [
+    "/dev/ttyUSB0"
+  ],
   "options": {
     "pair": false,
     "configure": true,
