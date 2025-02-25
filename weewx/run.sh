@@ -1,17 +1,16 @@
 #!/usr/bin/with-contenv bashio
 
 CONFIG_PATH=/data/options.json
-PAIR="$(jq --raw-output '.pair' $CONFIG_PATH)"
-CONFIGURE="$(jq --raw-output '.configure' $CONFIG_PATH)"
-DRIVER="$(jq --raw-output '.driver' $CONFIG_PATH)"
-LATITUDE="$(jq --raw-output '.latitude' $CONFIG_PATH)"
-LONGITUDE="$(jq --raw-output '.longitude' $CONFIG_PATH)"
-ALTITUDE="$(jq --raw-output '.altitude' $CONFIG_PATH)"
-ALTITUDEUNIT="$(jq --raw-output '.altitudeUnit' $CONFIG_PATH)"
-LOCATION="$(jq --raw-output '.location' $CONFIG_PATH)"
-UNITS="$(jq --raw-output '.units' $CONFIG_PATH)"
-MQTT_HOST=$(bashio::services mqtt "host")
-MQTT_PORT=$(bashio::services mqtt "port")
+
+PAIR="$(bashio::config 'pair')"
+CONFIGURE="$(bashio::config 'configure')"
+DRIVER="$(bashio::config 'driver')"
+LATITUDE="$(bashio::config 'latitude')"
+LONGITUDE="$(bashio::config 'longitude')"
+ALTITUDE="$(bashio::config 'altitude')"
+ALTITUDEUNIT="$(bashio::config 'altitudeUnit')"
+LOCATION="$(bashio::config 'location')"
+UNITS="$(bashio::config 'units')"
 
 if [ "$CONFIGURE" == 'true' ]
 then
@@ -25,6 +24,6 @@ fi
 
 if [ "$CONFIGURE" == 'false' ]
 then
-  sed -i 's/MQTT_HOST/'$MQTT_HOST':'$MQTT_PORT'/g' /config/weewx.conf
+  sed -i 's/MQTT_HOST/'$(bashio::services mqtt "host")':'$(bashio::services mqtt "port")'/g' /config/weewx.conf
   weewxd /config/weewx.conf
 fi
