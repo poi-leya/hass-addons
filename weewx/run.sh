@@ -18,7 +18,7 @@ fi
 
 if [ "$PAIR" == 'true' ]
 then
-  weectl device --pair
+  weectl device --pair --config=/config/weewx.conf
 fi
 
 if [ "$CONFIGURE" == 'false' ]
