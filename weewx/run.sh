@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/with-contenv bashio
 
 CONFIG_PATH=/data/options.json
 PAIR="$(jq --raw-output '.pair' $CONFIG_PATH)"
