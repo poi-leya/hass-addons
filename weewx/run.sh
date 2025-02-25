@@ -10,6 +10,7 @@ ALTITUDE="$(jq --raw-output '.altitude' $CONFIG_PATH)"
 ALTITUDEUNIT="$(jq --raw-output '.altitudeUnit' $CONFIG_PATH)"
 LOCATION="$(jq --raw-output '.location' $CONFIG_PATH)"
 UNITS="$(jq --raw-output '.units' $CONFIG_PATH)"
+MQTT_HOST=$(bashio::services mqtt "host")
 
 if [ "$CONFIGURE" == 'true' ]
 then
