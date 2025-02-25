@@ -1,6 +1,6 @@
 {
   "name": "WeeWX",
-  "version": "0.112",
+  "version": "0.113",
   "slug": "leya_weewx",
   "description": "Add-on for connecting weather stations to Hass.io using WeeWX and MQTT",
   "url": "https://github.com/poi-leya/hassio-addons",
@@ -26,7 +26,12 @@
     "location": null,
     "units": null
   },
-  "map": ["addon_config:rw"],
+  "map": [
+    {
+      "type": "addon_config",
+      "read_only": false
+    }
+  ],
   "schema": {
     "pair": "bool",
     "configure": "bool",
