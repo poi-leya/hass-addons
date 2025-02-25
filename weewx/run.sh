@@ -11,6 +11,7 @@ ALTITUDEUNIT="$(jq --raw-output '.altitudeUnit' $CONFIG_PATH)"
 LOCATION="$(jq --raw-output '.location' $CONFIG_PATH)"
 UNITS="$(jq --raw-output '.units' $CONFIG_PATH)"
 MQTT_HOST=$(bashio::services mqtt "host")
+MQTT_PORT=$(bashio::services mqtt "port")
 
 if [ "$CONFIGURE" == 'true' ]
 then
@@ -24,6 +25,6 @@ fi
 
 if [ "$CONFIGURE" == 'false' ]
 then
+  sed -i 's/MQTT_HOST/'$MQTT_HOST':'$MQTT_PORT'/g' /home/weewx/weewx.conf
   weewxd /config/weewx.conf
 fi
-#sleep infinity
