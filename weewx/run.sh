@@ -25,6 +25,6 @@ fi
 
 if [ "$CONFIGURE" == 'false' ]
 then
-  sed -i 's/MQTT_HOST/'$MQTT_HOST':'$MQTT_PORT'/g' /home/weewx/weewx.conf
+  sed -i 's/MQTT_HOST/'$MQTT_HOST':'$MQTT_PORT'/g' /config/weewx.conf
   weewxd /config/weewx.conf
 fi
