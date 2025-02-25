@@ -13,7 +13,7 @@ UNITS="$(jq --raw-output '.units' $CONFIG_PATH)"
 
 if [ "$CONFIGURE" == 'true' ]
 then
-  weectl station create --driver=$DRIVER --latitude=$LATITUDE --longitude=$LONGITUDE --altitude=$ALTITUDE,$ALTITUDEUNIT --location=$LOCATION --units=$UNITS --no-prompt --config=/config/weewx.conf
+  weectl station create /data --driver=$DRIVER --latitude=$LATITUDE --longitude=$LONGITUDE --altitude=$ALTITUDE,$ALTITUDEUNIT --location=$LOCATION --units=$UNITS --no-prompt --config=/config/weewx.conf
 fi
 
 if [ "$PAIR" == 'true' ]

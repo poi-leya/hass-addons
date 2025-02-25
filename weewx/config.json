@@ -26,7 +26,7 @@
     "location": null,
     "units": null
   },
-  "map": ["addon_config"],
+  "map": ["addon_config:rw"],
   "schema": {
     "pair": "bool",
     "configure": "bool",
