@@ -1,6 +1,6 @@
 {
   "name": "WeeWX",
-  "version": "0.115",
+  "version": "0.116",
   "slug": "leya_weewx",
   "description": "Add-on for connecting weather stations to Hass.io using WeeWX and MQTT",
   "url": "https://github.com/poi-leya/hassio-addons",
@@ -14,13 +14,7 @@
   ],
   "startup": "application",
   "boot": "auto",
-  "usb": true,
-  "devices": [
-    "/dev/bus/usb/001/001",
-    "/dev/bus/usb/001/002",
-    "/dev/bus/usb/001/003",
-    "/dev/bus/usb/001/004"
-  ],
+  "full_access": true,
   "options": {
     "pair": false,
     "configure": true,
